@@ -1,0 +1,360 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+
+body {
+    font-family: 'Open Sans';
+    font-weight: 900;
+}
+
+#loader{
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: white url(images/3dgifmaker19056.gif) center no-repeat;
+  z-index: 9999;
+}
+
+#separador {
+  height: 10vh;
+}
+
+header {
+    display: flex;
+    position: fixed;
+    background-color: white;
+    width: 100%;
+    height: 10vh;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    z-index: 1;
+    border: 1px solid transparent;
+    border-bottom-left-radius: 0.5em;
+    border-bottom-right-radius: 0.5em;
+}
+
+.headerLft i {
+    padding: 0 0.5em;
+    text-decoration: none;
+    color: #107bbf;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.headerLft i:hover {
+    color: #109bbf;
+}
+
+.headerLft a {
+    padding: 0 0.5em;
+    text-decoration: none;
+    color: #107bbf;
+    transition: 0.2s;
+}
+
+.headerLft a:hover {
+    color: #109bbf;
+}
+
+.headerLft img {
+    width: 30px;
+}
+
+.headerRght a{
+    padding: 0 0.2em;
+    text-decoration: none;
+    color: #107bbf;
+    transition: 0.2s;
+}
+
+.headerRght a:hover {
+    color: #109bbf;
+}
+
+.boasVindas-div {
+    width: 100%;
+}
+
+.sidenav {
+  position: fixed;
+  overflow-x: hidden;
+  height: 100%;
+  width: 0;
+  z-index: 1;
+  top: 0; 
+  left: 0;
+  padding-top: 60px;
+  background-color: white;
+  border-top-right-radius: 1em;
+  transition: 0.5s;
+}
+
+.sidenav .closebtn {
+position: absolute;
+top: 0;
+right: 25px;
+font-size: 36px;
+margin-left: 50px;
+text-decoration: none;
+color: #107bbf;
+}
+
+.topList {
+  list-style: none;
+  padding-left: 0;
+}
+
+.topList a{
+  padding: 0.3em 1em;
+  text-decoration: none;
+  font-size: 15px;
+  border: 1px solid white;
+  margin: 0.5em;
+  border-radius: 0.5em;
+  color: #107bbf;
+  display: block; 
+  transition: 0.3s;
+}
+
+.topList a:hover {
+  background-color: #107bbf;
+  color: white;
+}
+
+.bottomList {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    list-style: none;
+    padding-left: 0;
+}
+
+.bottomList a {
+    text-decoration: none;
+    color: white;
+    border: 2px solid #107bbf;
+    border-radius: 0.5em;
+    background-color: #107bbf;
+    padding: 0.3em 1em;
+    font-size: 15px;
+    margin: 0.5em;
+    display: block; 
+    transition: 0.3s;
+}
+
+.bottomList a:hover {
+    background-color: #109bbf;
+    border-color: #109bbf;
+}
+
+#boas-vindas {
+    width: 100%;
+    object-fit: cover;
+}
+
+#boas-vindasMobile {
+    display: none;
+}
+
+#quemSomos {
+  margin-bottom: 2em;
+}
+
+
+#col1_qs h3 {
+  color: #107bbf;
+  font-size: 50px;
+  font-weight: 900;
+  outline: 1em #107bbf;
+}
+
+#col1_qs p {
+  color: #109bbf;
+}
+
+#col1_qs span {
+  color: #107bbf;
+}
+
+#col2_qs p {
+  color: #109bbf;
+}
+
+#Noticias {
+  
+}
+
+.map {
+  z-index: 0;
+  border-image: 1px solid transparent;
+  border-radius: 1em;
+  transition: 0.4s;
+  -webkit-filter: grayscale(100%);
+  -moz-filter: grayscale(100%);
+  -ms-filter: grayscale(100%);
+  -o-filter: grayscale(100%);
+   filter: grayscale(100%);
+}
+
+.map:hover {
+  -webkit-filter: grayscale(0%);
+  -moz-filter: grayscale(0%);
+  -ms-filter: grayscale(0%);
+  -o-filter: grayscale(0%);
+   filter: grayscale(0%);
+}
+
+#h1Maps {
+   color: #109bbf;
+   cursor: default;
+   transition: 0.2s;
+}
+
+#pMaps {
+   color: darkgray;
+   transition: 0.2s;
+}
+
+#pMap2 {
+    color: lightgray;
+}
+
+#h1Maps:hover {
+    color: #107bbf;
+}
+
+#footerHr {
+    display: flex; 
+    border: 4px solid #4e98d2; 
+    background-color: #4e98d2; 
+    border-radius: 2em; 
+    opacity: 1; 
+    width: 50%; 
+    margin: 0 auto;
+}
+
+.footer-basic {
+    padding:40px 0;
+    background-color:#ffffff;
+    color:#4b4c4d;
+  }
+  
+  .footer-basic ul {
+    padding:0;
+    list-style:none;
+    text-align:center;
+    font-size:18px;
+    line-height:1.6;
+    margin-bottom:0;
+  }
+  
+  .footer-basic li {
+    padding:0 10px;
+  }
+  
+  .footer-basic ul a {
+    color:inherit;
+    text-decoration:none;
+    transition: 0.2s;
+    opacity:0.8;
+  }
+  
+  .footer-basic ul a:hover {
+    opacity:1;
+  }
+  
+  .footer-basic .social {
+    text-align:center;
+    padding-bottom:25px;
+  }
+  
+  .footer-basic .social > a {
+    color: #107bbf;
+    text-decoration: none;
+    padding: 0 0.5em;
+    padding-bottom:25px;
+    transition: 0.2s;
+  }
+
+  .footer-basic .social > a:hover {
+    color: #109bbf;
+  }
+  
+  .footer-basic .copyright {
+    margin-top:15px;
+    text-align:center;
+    font-size:13px;
+    color:#aaa;
+    margin-bottom:0;
+  }
+
+  /*-- Smartphones (portrait and landscape) ----------- */
+@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    #navTitle {
+      display: none;
+    }
+  
+    #boas-vindas {
+      display: none;
+    }
+    #boas-vindasMobile {
+      display: flex;
+      width: 100%;
+      object-fit: cover;
+    }
+    #col1_qs {
+      padding: 1rem;
+      padding-bottom: 0;
+    }
+    #col2_qs {
+      padding-top: 0;
+      padding: 1rem;
+    }
+    #col1_qs h3 {
+      color: #107bbf;
+      font-size: 30px;
+      font-weight: 900;
+    }
+    #col1_qs p {
+      font-size: 10px;
+      font-weight: 900;
+    }
+    #col2_qs p {
+      color: #107bbf;
+      font-size: 10px;
+      font-weight: 900;
+      outline: 1em #107bbf;
+    }
+    .map {
+       width: 100%;
+    }
+    #h1Maps {
+      font-size: 30px;
+    }
+    #pMaps {
+      font-size: 10px;
+    }
+    #pMaps2 {
+      font-size: 10px;
+    }
+    #footerHr {
+      display: none;
+    }
+}
+
+/* Small devices (tablets, 768px and up) ----------- */
+@media only screen and (min-device-width : 768px) {
+  
+}
+
+/* Medium devices (desktops, 992px and up) ----------- */
+@media only screen and (min-device-width : 992px) {
+  
+}
+
+/* Large devices (large desktops, 1200px and up) ----------- */
+@media only screen and (min-device-width : 1200px) {
+  
+}
