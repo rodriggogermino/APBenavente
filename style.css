@@ -1,3 +1,23 @@
+@font-face {
+  font-family: 'BigJohn-Bold';
+  src: url(fonts/BigJohnPRO-Bold.otf);
+}
+
+@font-face {
+  font-family: 'BigJohn-Regular';
+  src: url(fonts/BigJohnPRO-Regular.otf);
+}
+
+@font-face {
+  font-family: 'BigJohn-Bold';
+  src: url(fonts/BigJohnPRO-lIGH.otf);
+}
+
+@keyframes animatetop {
+  from {top: -300px; opacity: 0}
+  to {top: 0; opacity: 1}
+}
+
 * {
     padding: 0;
     margin: 0;
@@ -29,10 +49,8 @@ header {
     justify-content: space-between;
     align-items: center;
     padding: 1em;
-    z-index: 1;
+    z-index: 999;
     border: 1px solid transparent;
-    border-bottom-left-radius: 0.5em;
-    border-bottom-right-radius: 0.5em;
 }
 
 .headerLft i {
@@ -73,8 +91,171 @@ header {
     color: #109bbf;
 }
 
+.subnav {
+  position: fixed;
+  width: 100%;
+  height: 10vh;
+  background-color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-bottom-left-radius: 1em;
+  border-bottom-right-radius: 1em;
+  transition: opacity 0.2s ease, visibility 0.2s ease;
+}
+
+.subnav a {
+text-decoration: none;
+padding: 16px;
+color: #107bbf;
+font-weight: 900;
+font-size: 15px;
+cursor: pointer;
+transition: 0.3s;
+}
+
+.subnav a:hover {
+color: #109bbf;
+}
+
+.subnav .scrolled{
+  display: none;
+}
+
+.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.dropdown {
+position: relative;
+display: inline-block;
+}
+
+.dropbtn {
+background-color: transparent;
+color: #107bbf;
+font-weight: 900;
+font-size: 15px;
+padding: 16px;
+border: none;
+}
+
+.dropdown-content {
+display: none;
+position: absolute;
+background-color: white;
+min-width: 160px;
+box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+z-index: 1;
+border-radius: 1em;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+color: #107bbf;
+padding: 12px 16px;
+text-decoration: none;
+display: block;
+border-radius: 1em;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #f1f1f1;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+#aLogin-nav {
+  display: flex;
+}
+
+#loginNav {
+  display: flex;
+  padding: 10px 14px;
+  align-items: center;
+  border: 2px solid #107bbf;
+  border-radius: 1em;
+  transition: 0.3s;
+}
+
+#loginNav:hover {
+  background-color: #107bbf;
+  color: white;
+}
+
+#loginNav p {
+  margin: 0;
+  padding-left: 10px;
+}
+
+.modal {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 1; /* Sit on top */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0,0,0); /* Fallback color */
+  background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content/Box */
+.modal-content {
+  background-color: #fefefe;
+  color: #107bbf;
+  margin: 15% auto; /* 15% from the top and centered */
+  padding: 20px;
+  border: 1px solid #888;
+  width: fit-content; /* Could be more or less, depending on screen size */
+  animation-name: animatetop;
+  animation-duration: 0.4s
+}
+
+.modal-content div {
+  display: flex;
+  justify-content: center;
+}
+
+.modal-content a {
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid #107bbf;
+  border-radius: 0.6em;
+  background-color: #107bbf;
+  color: white;
+  width: 50%;
+  margin-right: 0.5em;
+  transition: 0.3s;
+}
+
+.modal-content a:hover {
+  border-color: #109bbf;
+  background-color: #109bbf;
+}
+
+.modal-content span {
+  text-decoration: none;
+  text-align: center;
+  border: 2px solid lightgray;
+  border-radius: 0.6em;
+  background-color: lightgray;
+  color: white;
+  transition: 0.3s;
+  width: 50%;
+  cursor: pointer;
+}
+
+.modal-content span:hover {
+  background-color: darkgray;
+  border-color: transparent;
+}
+
 .boasVindas-div {
     width: 100%;
+    padding-top: 10vh;
 }
 
 .sidenav {
@@ -92,13 +273,13 @@ header {
 }
 
 .sidenav .closebtn {
-position: absolute;
-top: 0;
-right: 25px;
-font-size: 36px;
-margin-left: 50px;
-text-decoration: none;
-color: #107bbf;
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+  text-decoration: none;
+  color: #107bbf;
 }
 
 .topList {
@@ -162,7 +343,6 @@ color: #107bbf;
   margin-bottom: 2em;
 }
 
-
 #col1_qs h3 {
   color: #107bbf;
   font-size: 50px;
@@ -182,8 +362,108 @@ color: #107bbf;
   color: #109bbf;
 }
 
-#Noticias {
-  
+#sectionNoticias {
+  width: 100%;
+  height: fit-content;
+}
+
+.divCards-News {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  position: relative;
+}
+
+#arLeft, #arRight {
+  font-size: 30px;
+  z-index: 2;
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+  cursor: pointer;
+  position: absolute;
+}
+
+#arLeft {
+  left: 5%;
+}
+
+#arRight {
+  right: 5%;
+}
+
+.cardNoticias {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.cardNoticias img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.containerNews {
+  position: absolute;
+  width: 100%;
+  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  top: 0;
+  left: 0;
+}
+
+.containerNews.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* Bottom left text */
+.bottom-left {
+  position: absolute;
+  bottom: 8px;
+  left: 16px;
+}
+
+/* Top left text */
+.top-left {
+  position: absolute;
+  top: 8px;
+  left: 16px;
+}
+
+/* Top right text */
+.top-right {
+  position: absolute;
+  top: 8px;
+  right: 16px;
+}
+
+/* Bottom right text */
+.bottom-right {
+  position: absolute;
+  bottom: 8px;
+  right: 16px;
+}
+
+/* Centered text */
+.centered {
+  width: 100%;
+  position: absolute;
+  bottom: 0%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.centered h1 {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
+}
+
+.centered p {
+  color: white;
+  text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
 }
 
 .map {
@@ -207,7 +487,8 @@ color: #107bbf;
 }
 
 #h1Maps {
-   color: #109bbf;
+  font-weight: 900;
+   color: #107bbf;
    cursor: default;
    transition: 0.2s;
 }
@@ -225,6 +506,127 @@ color: #107bbf;
     color: #107bbf;
 }
 
+.loginDiv {
+    height: 80vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-image: url(images/headerBg.jpg);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.formLogin {
+    width: fit-content;
+    border: 2px solid transparent;
+    border-radius: 1em;
+    background-color: white;
+    color: #107bbf;
+    padding: 1.5em;
+}
+
+.formLogin h3 {
+  text-align: center;
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.formLogin label {
+    font-weight: 900;
+}
+
+.formLogin input {
+    border: 2px solid transparent;
+    border-radius: 0.6em;
+    background-color: lightgray;
+    padding: 0.5em;
+    width: 400px;
+    transition: 0.2s;
+}
+
+#passVisibilidade {
+    transition: 0.2s;
+    cursor: pointer;
+}
+
+#passVisibilidade:hover {
+    color: #109bbf;
+}
+
+#submitBtn {
+    width: 100%;
+    border: 2px solid transparent;
+    background-color: #107bbf;
+    color: white;
+    font-weight: 900;
+    transition: 0.2s;
+}
+
+#submitBtn:hover {
+    background-color: #109bbf;
+}
+
+.bannerContactos {
+  width: 100%;
+  text-align: center;
+  background-image: url(images/bgBlur.png);
+  background-size: cover;
+  padding: 2.5em 1em;
+}
+
+.bannerContactos h1{
+  color: white;
+  font-size: 50px;
+  font-weight: 900;
+}
+
+.contactosDiv {
+  height: 45vh;
+  display: flex;
+  align-items: center;
+}
+
+.cardContactos {
+  margin: 1em 0;
+}
+
+.cardContactos i {
+  font-size: 20px;
+  color: #107bbf;
+}
+
+.cardContactos hr {
+  width: 30%;
+  margin: 0 auto;
+  margin: 1em auto;
+  border: 2px solid #107bbf;
+  border-radius: 4em;
+  background-color: #107bbf;
+  opacity: 1;
+}
+
+.cardContactos a {
+  font-size: 13px;
+  text-decoration: none;
+  color: white;
+  border: 2px solid #107bbf;
+  border-radius: 0.6em;
+  padding: 0.2em 1em;
+  background-color: #107bbf;
+  transition: 0.3s;
+}
+
+.cardContactos a:hover {
+  background-color: #109bbf;
+  border-color: #109bbf;
+}
+
+.containerContactos p{
+  color: #109bbf;
+}
+
 #footerHr {
     display: flex; 
     border: 4px solid #4e98d2; 
@@ -237,6 +639,7 @@ color: #107bbf;
 
 .footer-basic {
     padding:40px 0;
+    height: 10vh;
     background-color:#ffffff;
     color:#4b4c4d;
   }
@@ -292,10 +695,34 @@ color: #107bbf;
 
   /*-- Smartphones (portrait and landscape) ----------- */
 @media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
+    #aLogin-nav {
+      display: none;
+    }
+    .aLogin-nav {
+      display: none;
+    }
     #navTitle {
       display: none;
     }
-  
+    #bemVindoAdm {
+      display: none;
+    }
+    .sidenav {
+      padding-top: 15px;
+    }
+    .sidenav a {
+      font-size: 18px;
+    }
+    .subnav {
+      display: none;
+    }
+    .containerNews img{
+      height: 400px;
+      width: 100%;
+    }
+    .boasVindas-div {
+      padding-top: 0;
+    }
     #boas-vindas {
       display: none;
     }
@@ -339,14 +766,72 @@ color: #107bbf;
     #pMaps2 {
       font-size: 10px;
     }
-    #footerHr {
-      display: none;
+    .formLogin {
+      width: fit-content;
+      border: 2px solid transparent;
+      border-radius: 0.5em;
+      background-color: white;
+      color: #107bbf;
+      padding: 1.5em;
+    }
+    
+    .formLogin h3 {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 900;
+    }
+    
+    .formLogin label {
+        font-weight: 900;
+    }
+    
+    .formLogin input {
+        border: 2px solid transparent;
+        border-radius: 0.5em;
+        background-color: lightgray;
+        padding: 0.5em;
+        width: 300px;
+        transition: 0.2s;
+    }
+    
+    #passVisibilidade {
+        transition: 0.2s;
+        cursor: pointer;
+    }
+    
+    #passVisibilidade:hover {
+        color: #109bbf;
+    }
+    
+    #submitBtn {
+        width: 100%;
+        border: 2px solid transparent;
+        background-color: #107bbf;
+        color: white;
+        font-weight: 900;
+        transition: 0.2s;
     }
 }
 
 /* Small devices (tablets, 768px and up) ----------- */
 @media only screen and (min-device-width : 768px) {
-  
+  .headerLft i {
+    display: none;
+  }
+  .headerRght a {
+    display: none;
+  }
+  #aLogin-nav {
+    display: flex;
+  }
+  #bemVindoAdm {
+    display: flex;
+    border: none;
+    background-color: transparent;
+    color: #107bbf;
+    font-family: 'Open Sans';
+    font-weight: 900;
+  }
 }
 
 /* Medium devices (desktops, 992px and up) ----------- */
@@ -356,5 +841,4 @@ color: #107bbf;
 
 /* Large devices (large desktops, 1200px and up) ----------- */
 @media only screen and (min-device-width : 1200px) {
-  
 }

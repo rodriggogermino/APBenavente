@@ -4,9 +4,9 @@
       <ul class="list-inline">
           <li class="list-inline-item"><a href="index.php#">Inicio</a></li>
           <li class="list-inline-item"><a href="index.php#quemSomos">Quem somos?</a></li>
-          <li class="list-inline-item"><a href="index.php#Noticias">Noticias</a></li>
+          <li class="list-inline-item"><a href="index.php#sectionNoticias">Noticias</a></li>
           <li class="list-inline-item"><a href="#">Ficheiros</a></li>
-          <li class="list-inline-item"><a href="#">Contactos</a></li>
+          <li class="list-inline-item"><a href="contactos.php">Contactos</a></li>
       </ul>
       <p class="copyright">Associação de Pais de Benavente © 2024</p>
       <p class="copyright">Website desenvolvido por Rodrigo Germino</p>

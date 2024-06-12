@@ -8,7 +8,7 @@
             <a href="index.php#quemSomos">Quem somos?</a>
         </li>
         <li>
-            <a href="index.php#Noticias">Noticias</a>
+            <a href="index.php#sectionNoticias">Noticias</a>
         </li>
         <li>
             <a href="">Inscrição na Associação</a>
@@ -17,7 +17,7 @@
             <a href="#">Ficheiros</a>
         </li>
         <li>
-            <a href="#">Contactos</a>
+            <a href="contactos.php">Contactos</a>
         </li>
     </ul>
     <ul class="bottomList">
