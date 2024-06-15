@@ -15,7 +15,7 @@
     <div id="separador"></div>
     <?php    
         include('includes/sidenav.php');
-        include('includes/cookiesModal.php');
+        include('includes/modal.php');
    ?>
     <div>
     <div class="bannerContactos">

@@ -1,3 +1,6 @@
+<?php
+    session_start(); // Inicia a sessão
+?>   
 <!DOCTYPE html>
 <html lang="en">
     <?php include('includes/head.php') ?>
@@ -12,7 +15,6 @@
         include('includes/modal.php');    
         include('includes/subnav.php');
         include('includes/sidenav.php');
-        include('includes/cookiesModal.php');
    ?>
    <div class="noticiaBody">
         <div class="noticiaImg">
@@ -40,7 +42,6 @@
             </div>
         </div>
    </div>
-
    <?php include('includes/footer.php'); ?>
 </body>
 </html>

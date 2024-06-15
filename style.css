@@ -1,16 +1,6 @@
 @font-face {
-  font-family: 'BigJohn-Bold';
-  src: url(fonts/BigJohnPRO-Bold.otf);
-}
-
-@font-face {
-  font-family: 'BigJohn-Regular';
-  src: url(fonts/BigJohnPRO-Regular.otf);
-}
-
-@font-face {
-  font-family: 'BigJohn-Bold';
-  src: url(fonts/BigJohnPRO-lIGH.otf);
+  font-family: 'Open Sans';
+  src: url(fonts/OpenSans-Regular.ttf);
 }
 
 @keyframes animatetop {
@@ -26,7 +16,7 @@
 body {
     font-family: 'Open Sans';
     font-weight: 900;
-
+    font-kerning: none;
 }
 
 #loader{
@@ -432,35 +422,6 @@ border-radius: 1em;
   position: relative;
 }
 
-/* Bottom left text */
-.bottom-left {
-  position: absolute;
-  bottom: 8px;
-  left: 16px;
-}
-
-/* Top left text */
-.top-left {
-  position: absolute;
-  top: 8px;
-  left: 16px;
-}
-
-/* Top right text */
-.top-right {
-  position: absolute;
-  top: 8px;
-  right: 16px;
-}
-
-/* Bottom right text */
-.bottom-right {
-  position: absolute;
-  bottom: 8px;
-  right: 16px;
-}
-
-/* Centered text */
 .centered {
   width: 100%;
   position: absolute;
@@ -668,14 +629,12 @@ border-radius: 1em;
 
 .noticaImgContainer {
   position: absolute;
-  bottom: 10px; /* Adjust as needed */
-  left: 10px;   /* Adjust as needed */
+  bottom: 10px;
+  left: 10px;
   right: 10px;
   text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
-  /* Optional: adds a background to make text more readable */
-  color: white; /* Optional: changes text color */
-  padding: 10px; /* Optional: adds some padding around the text */
-  
+  color: white; 
+  padding: 10px;
 }
 
 #artigoTitle {
@@ -877,21 +836,20 @@ footer img {
   header {
       height: 13vh;
   }
-  .headerLft {
+  .headerLft, .headerRght {
       display: flex;
       align-items: center;
   }
   .headerLft i,
-  .headerRght,
   .headerRght a {
-      display: flex;
+      display: none;
   }
   #aLogin-nav,
   .aLogin-nav,
   #navTitle,
   #bemVindoAdm,
   .subnav {
-      display: none;
+      display: flex;
   }
   .sidenav {
       padding-top: 15px;
@@ -978,6 +936,9 @@ footer img {
       color: white;
       font-weight: 900;
       transition: 0.2s;
+  }
+  .cardNoticias {
+    height: 300px;
   }
   footer img {
       width: 40%;
