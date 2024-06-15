@@ -42,21 +42,35 @@ function verPassword() {
     }
 }
 
-function acceptCookies() {
-  document.cookie = "cookie_consent=accepted; path=/; max-age=" + (30 * 24 * 60 * 60);
-  document.querySelector('.cookie-consent-banner').style.display = 'none';
+let slideIndex = 0;
+  let slideInterval;
 
-  // Send an AJAX request to set the consent in the database
-  $.post(window.location.href, { cookie_consent: 'accepted' }, function() {
-      // Hide the banner
-      $('.cookie-consent-banner').hide();
-  });
-}
+  function showDivs(n) {
+    let slides = document.getElementsByClassName("containerNews");
+    if (n >= slides.length) { slideIndex = 0 }
+    if (n < 0) { slideIndex = slides.length - 1 }
+    for (let i = 0; i < slides.length; i++) {
+      slides[i].style.opacity = "0";
+    }
+    slides[slideIndex].style.opacity = "1";
+  }
 
-function managePreferences() {
-  alert("Manage your preferences here.");
-  // Implement your preferences management logic here
-}
+  function plusDivs(n) {
+    clearInterval(slideInterval); // Stop the automatic slideshow on manual change
+    slideIndex += n;
+    showDivs(slideIndex);
+    slideInterval = setInterval(autoSlide, 5000); // Restart the automatic slideshow
+  }
+
+  function autoSlide() {
+    slideIndex++;
+    showDivs(slideIndex);
+  }
+
+  window.onload = function() {
+    showDivs(slideIndex);
+    slideInterval = setInterval(autoSlide, 5000); // Change slide every 5 seconds
+  }
 
 // Get the modal
 var modal = document.getElementById("myModal");
@@ -83,31 +97,3 @@ window.onclick = function(event) {
     modal.style.display = "none";
   }
 }
-
-document.addEventListener('DOMContentLoaded', function() {
-  const newsContainers = document.querySelectorAll('.containerNews');
-  const leftArrow = document.getElementById('arLeft');
-  const rightArrow = document.getElementById('arRight');
-  let currentIndex = 0;
-
-  function showNews(index) {
-      newsContainers.forEach((container, i) => {
-          container.classList.remove('active');
-          if (i === index) {
-              container.classList.add('active');
-          }
-      });
-  }
-
-  leftArrow.addEventListener('click', function() {
-      currentIndex = (currentIndex === 0) ? newsContainers.length - 1 : currentIndex - 1;
-      showNews(currentIndex);
-  });
-
-  rightArrow.addEventListener('click', function() {
-      currentIndex = (currentIndex === newsContainers.length - 1) ? 0 : currentIndex + 1;
-      showNews(currentIndex);
-  });
-
-  showNews(currentIndex);
-});

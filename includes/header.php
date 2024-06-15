@@ -6,7 +6,7 @@
     </div>
     <div class="headerRght">
         <a href="https://pt-pt.facebook.com/AssociacaoPaisdoagrupamentodeescolasBenavente/" target="_blank"><i class="fa-brands fa-facebook-f"></i></a>
-        <a href="" target="_blank"><i class="fa-solid fa-envelope"></i></a>
+        <a href="https://mail.google.com/mail/?view=cm&fs=1&tf=1&to=aeb.pais@aebenavente.pt" target="_blank"><i class="fa-solid fa-envelope"></i></a>
         <?php
             if (isset($_SESSION['username'])) { ?>
                 <button href="" id="bemVindoAdm">Bem-vindo, Admin!</button>

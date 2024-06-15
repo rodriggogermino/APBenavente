@@ -39,41 +39,38 @@
         </div>
     </section>
     <section id="sectionNoticias">
-    <div class="divCards-News">
-        <i class="fa-solid fa-chevron-left" id="arLeft"></i>
-        <div class="cardNoticias">
-            <div class="containerNews active">
-                <img src="images/headerBg1.jpg" alt="Noticia 1">
-                <div class="centered">
-                    <h1>Noticia 1</h1>
-                    <p>Novo website da Associação de Pais de Benavente</p>
-                </div>
+        <div class="divCards-News">
+            <i class="fa-solid fa-chevron-left" id="arLeft" onclick="plusDivs(-1)"></i>
+            <div class="cardNoticias">
+                <a href="noticia.php">
+                    <div class="containerNews">
+                        <img src="images/headerBg.jpg" alt="Noticia 1">
+                        <div class="centered">
+                            <h1>Noticia 1</h1>
+                            <p>Novo website da Associação de Pais de Benavente</p>
+                        </div>
+                    </div>
+                </a>
+                <a href="noticia.php">
+                    <div class="containerNews">
+                        <img src="images/esb.jpg" alt="Noticia 2">
+                        <div class="centered">
+                            <h1>Noticia 2</h1>
+                            <p>Alguma outra notícia importante</p>
+                        </div>
+                    </div>
+                </a>
             </div>
-            <div class="containerNews">
-                <img src="images/headerBg2.jpg" alt="Noticia 2">
-                <div class="centered">
-                    <h1>Noticia 2</h1>
-                    <p>Evento de Caridade em Benavente</p>
-                </div>
-            </div>
-            <div class="containerNews">
-                <img src="images/headerBg3.jpg" alt="Noticia 3">
-                <div class="centered">
-                    <h1>Noticia 3</h1>
-                    <p>Nova Biblioteca Inaugurada</p>
-                </div>
-            </div>
+            <i class="fa-solid fa-chevron-right" id="arRight" onclick="plusDivs(+1)"></i>
         </div>
-        <i class="fa-solid fa-chevron-right" id="arRight"></i>
-    </div>
-</section>
+    </section>
     <section id="ondeEstamos">
         <div class="container mt-5" style="margin-bottom: 1em">
             <div class="row justify-content-center">
-                <div class="col-sm-4">
+                <div class="col-md" style="text-align: right;">
                     <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d188730.12496497773!2d-8.8599432!3d38.9602363!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd191e53ee9da41f%3A0xa0760a3a41b0016!2sBenavente!5e1!3m2!1spt-PT!2spt!4v1716202914950!5m2!1spt-PT!2spt" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                 </div>
-                <div class="col-sm-4">
+                <div class="col-md">
                     <h1 id="h1Maps">Saiba onde nos encontrar!</h1>
                     <p id="pMaps">
                         ... e não hesite em contactar.
@@ -85,8 +82,6 @@
             </div>
         </div> 
     </section>
-    <?php
-        include('includes/footer.php');
-    ?>
+    <?php include('includes/footer.php'); ?>
 </body>
 </html>

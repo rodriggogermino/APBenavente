@@ -26,6 +26,7 @@
 body {
     font-family: 'Open Sans';
     font-weight: 900;
+
 }
 
 #loader{
@@ -59,6 +60,7 @@ header {
     color: #107bbf;
     cursor: pointer;
     transition: 0.2s;
+    display: none;
 }
 
 .headerLft i:hover {
@@ -85,6 +87,17 @@ header {
     text-decoration: none;
     color: #107bbf;
     transition: 0.2s;
+    display: none;
+}
+
+.headerRght button{
+  padding: 0 0.2em;
+  text-decoration: none;
+  color: #107bbf;
+  transition: 0.2s;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
 }
 
 .headerRght a:hover {
@@ -95,12 +108,11 @@ header {
   position: fixed;
   width: 100%;
   height: 10vh;
+  z-index: 998;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  border-bottom-left-radius: 1em;
-  border-bottom-right-radius: 1em;
   transition: opacity 0.2s ease, visibility 0.2s ease;
 }
 
@@ -192,7 +204,7 @@ border-radius: 1em;
 .modal {
   display: none; /* Hidden by default */
   position: fixed; /* Stay in place */
-  z-index: 1; /* Sit on top */
+  z-index: 999; /* Sit on top */
   left: 0;
   top: 0;
   width: 100%; /* Full width */
@@ -263,7 +275,7 @@ border-radius: 1em;
   overflow-x: hidden;
   height: 100%;
   width: 0;
-  z-index: 1;
+  z-index: 999;
   top: 0; 
   left: 0;
   padding-top: 60px;
@@ -376,12 +388,12 @@ border-radius: 1em;
 }
 
 #arLeft, #arRight {
+  position: absolute;
   font-size: 30px;
   z-index: 2;
   color: white;
   text-shadow: 1px 1px 2px black, 0 0 1em black, 0 0 0.2em black;
   cursor: pointer;
-  position: absolute;
 }
 
 #arLeft {
@@ -394,29 +406,30 @@ border-radius: 1em;
 
 .cardNoticias {
   width: 100%;
+  height: 500px;
+  border: 2px solid transparent;
   overflow: hidden;
   position: relative;
 }
 
 .cardNoticias img {
   width: 100%;
-  height: 500px;
-  object-fit: cover;
+  height: 100%;
+  object-fit:cover;
 }
 
 .containerNews {
-  position: absolute;
   width: 100%;
-  transition: opacity 1s ease-in-out, visibility 1s ease-in-out;
+  height: 100%;
+  position: absolute;
+  text-align: center;
   opacity: 0;
-  visibility: hidden;
-  top: 0;
-  left: 0;
+  transition: opacity 1s ease-in-out;
 }
 
 .containerNews.active {
   opacity: 1;
-  visibility: visible;
+  position: relative;
 }
 
 /* Bottom left text */
@@ -491,15 +504,18 @@ border-radius: 1em;
    color: #107bbf;
    cursor: default;
    transition: 0.2s;
+   
 }
 
 #pMaps {
    color: darkgray;
    transition: 0.2s;
+   
 }
 
 #pMap2 {
     color: lightgray;
+    
 }
 
 #h1Maps:hover {
@@ -627,6 +643,60 @@ border-radius: 1em;
   color: #109bbf;
 }
 
+.noticiaBody {
+  width: 100%;
+  height: 100vh;
+}
+
+.noticiaBody h3 {
+  font-size: 50px;
+  font-weight: 900;
+  color: #107bbf;
+}
+
+.noticiaImg {
+  position: relative;
+  width: 100%;
+  height: 70%;
+}
+
+.noticiaImg img {
+  object-fit: cover;
+  width: 100%;
+  height: 100%;
+}
+
+.noticaImgContainer {
+  position: absolute;
+  bottom: 10px; /* Adjust as needed */
+  left: 10px;   /* Adjust as needed */
+  right: 10px;
+  text-shadow: 2px 3px 5px rgba(0,0,0,0.5);
+  /* Optional: adds a background to make text more readable */
+  color: white; /* Optional: changes text color */
+  padding: 10px; /* Optional: adds some padding around the text */
+  
+}
+
+#artigoTitle {
+  margin: 0.5em 0;
+}
+
+.textNoticia {
+  color: darkgray;
+}
+
+footer {
+  width: 100%;
+  text-align: center;
+}
+
+footer img {
+  width: 20%;
+  text-align: center;
+  margin: 1em 0;
+}
+
 #footerHr {
     display: flex; 
     border: 4px solid #4e98d2; 
@@ -693,144 +763,224 @@ border-radius: 1em;
     margin-bottom:0;
   }
 
-  /*-- Smartphones (portrait and landscape) ----------- */
-@media only screen and (min-device-width : 320px) and (max-device-width : 480px) {
-    #aLogin-nav {
+ /* General mobile styles (phones and small tablets in portrait and landscape) */
+@media only screen and (max-width: 900px) {
+  .headerLft {
+    display: flex;
+    align-items: center;
+}
+.headerLft i,
+.headerRght,
+.headerRght a {
+    display: flex;
+}
+  #aLogin-nav,
+  .aLogin-nav,
+  #navTitle,
+  #bemVindoAdm,
+  .subnav,
+  #boas-vindas {
       display: none;
-    }
-    .aLogin-nav {
-      display: none;
-    }
-    #navTitle {
-      display: none;
-    }
-    #bemVindoAdm {
-      display: none;
-    }
-    .sidenav {
+  }
+  .sidenav {
       padding-top: 15px;
-    }
-    .sidenav a {
+  }
+  .sidenav a {
       font-size: 18px;
-    }
-    .subnav {
-      display: none;
-    }
-    .containerNews img{
-      height: 400px;
+  }
+  .containerNews img {
       width: 100%;
-    }
-    .boasVindas-div {
+  }
+  .boasVindas-div {
       padding-top: 0;
-    }
-    #boas-vindas {
-      display: none;
-    }
-    #boas-vindasMobile {
+  }
+  #boas-vindasMobile {
       display: flex;
       width: 100%;
       object-fit: cover;
-    }
-    #col1_qs {
+  }
+  #col1_qs {
       padding: 1rem;
       padding-bottom: 0;
-    }
-    #col2_qs {
+  }
+  #col2_qs {
       padding-top: 0;
       padding: 1rem;
-    }
-    #col1_qs h3 {
+  }
+  #col1_qs h3 {
       color: #107bbf;
       font-size: 30px;
       font-weight: 900;
-    }
-    #col1_qs p {
+  }
+  #col1_qs p,
+  #col2_qs p {
       font-size: 10px;
       font-weight: 900;
-    }
-    #col2_qs p {
+  }
+  #col2_qs p {
       color: #107bbf;
-      font-size: 10px;
-      font-weight: 900;
       outline: 1em #107bbf;
-    }
-    .map {
-       width: 100%;
-    }
-    #h1Maps {
+  }
+  .map {
+      width: 100%;
+      padding: 0;
+  }
+  #h1Maps {
       font-size: 30px;
-    }
-    #pMaps {
-      font-size: 10px;
-    }
-    #pMaps2 {
-      font-size: 10px;
-    }
-    .formLogin {
+  }
+  .formLogin {
       width: fit-content;
       border: 2px solid transparent;
       border-radius: 0.5em;
       background-color: white;
       color: #107bbf;
       padding: 1.5em;
-    }
-    
-    .formLogin h3 {
+  }
+  .formLogin h3 {
       text-align: center;
       font-size: 25px;
       font-weight: 900;
-    }
-    
-    .formLogin label {
-        font-weight: 900;
-    }
-    
-    .formLogin input {
-        border: 2px solid transparent;
-        border-radius: 0.5em;
-        background-color: lightgray;
-        padding: 0.5em;
-        width: 300px;
-        transition: 0.2s;
-    }
-    
-    #passVisibilidade {
-        transition: 0.2s;
-        cursor: pointer;
-    }
-    
-    #passVisibilidade:hover {
-        color: #109bbf;
-    }
-    
-    #submitBtn {
-        width: 100%;
-        border: 2px solid transparent;
-        background-color: #107bbf;
-        color: white;
-        font-weight: 900;
-        transition: 0.2s;
-    }
+  }
+  .formLogin label {
+      font-weight: 900;
+  }
+  .formLogin input {
+      border: 2px solid transparent;
+      border-radius: 0.5em;
+      background-color: lightgray;
+      padding: 0.5em;
+      width: 300px;
+      transition: 0.2s;
+  }
+  #passVisibilidade {
+      transition: 0.2s;
+      cursor: pointer;
+  }
+  #passVisibilidade:hover {
+      color: #109bbf;
+  }
+  #submitBtn {
+      width: 100%;
+      border: 2px solid transparent;
+      background-color: #107bbf;
+      color: white;
+      font-weight: 900;
+      transition: 0.2s;
+  }
+  footer img {
+      width: 40%;
+  }
 }
 
-/* Small devices (tablets, 768px and up) ----------- */
-@media only screen and (min-device-width : 768px) {
-  .headerLft i {
-    display: none;
+/* Tablets in portrait and landscape, and larger devices */
+@media only screen and (min-width: 601px) and (max-width: 900px) {
+  header {
+      height: 13vh;
   }
+  .headerLft {
+      display: flex;
+      align-items: center;
+  }
+  .headerLft i,
+  .headerRght,
   .headerRght a {
-    display: none;
+      display: flex;
   }
-  #aLogin-nav {
-    display: flex;
+  #aLogin-nav,
+  .aLogin-nav,
+  #navTitle,
+  #bemVindoAdm,
+  .subnav {
+      display: none;
   }
-  #bemVindoAdm {
-    display: flex;
-    border: none;
-    background-color: transparent;
-    color: #107bbf;
-    font-family: 'Open Sans';
-    font-weight: 900;
+  .sidenav {
+      padding-top: 15px;
+  }
+  .sidenav a {
+      font-size: 18px;
+  }
+  .containerNews img {
+      width: 100%;
+  }
+  .boasVindas-div {
+      padding-top: 0;
+  }
+  #boas-vindas {
+      display: flex;
+  }
+  #boas-vindasMobile {
+      display: none;
+  }
+  #col1_qs {
+      padding: 1rem;
+      padding-bottom: 0;
+  }
+  #col2_qs {
+      padding-top: 0;
+      padding: 1rem;
+  }
+  #col1_qs h3 {
+      color: #107bbf;
+      font-size: 30px;
+      font-weight: 900;
+  }
+  #col1_qs p,
+  #col2_qs p {
+      font-size: 10px;
+      font-weight: 900;
+  }
+  #col2_qs p {
+      color: #107bbf;
+      outline: 1em #107bbf;
+  }
+  .map {
+      width: 100%;
+      padding: 0;
+  }
+  #h1Maps {
+      font-size: 30px;
+  }
+  .formLogin {
+      width: fit-content;
+      border: 2px solid transparent;
+      border-radius: 0.5em;
+      background-color: white;
+      color: #107bbf;
+      padding: 1.5em;
+  }
+  .formLogin h3 {
+      text-align: center;
+      font-size: 25px;
+      font-weight: 900;
+  }
+  .formLogin label {
+      font-weight: 900;
+  }
+  .formLogin input {
+      border: 2px solid transparent;
+      border-radius: 0.5em;
+      background-color: lightgray;
+      padding: 0.5em;
+      width: 300px;
+      transition: 0.2s;
+  }
+  #passVisibilidade {
+      transition: 0.2s;
+      cursor: pointer;
+  }
+  #passVisibilidade:hover {
+      color: #109bbf;
+  }
+  #submitBtn {
+      width: 100%;
+      border: 2px solid transparent;
+      background-color: #107bbf;
+      color: white;
+      font-weight: 900;
+      transition: 0.2s;
+  }
+  footer img {
+      width: 40%;
   }
 }
 
