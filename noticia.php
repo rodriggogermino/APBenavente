@@ -6,22 +6,58 @@
     <?php include('includes/head.php') ?>
 <body>
     <div id="loader"></div>
-   <?php
+    <?php
         include('bd/bd_config.php');
         include('includes/header.php');
+
+        // Fetch news details based on ID
+        $id = isset($_GET['id']) ? intval($_GET['id']) : 0;
+        if ($id > 0) {
+            $conn = new mysqli($servername, $username, $password, $dbname);
+
+            if ($conn->connect_error) {
+                die("Oops! Parece que estamos com alguns problemas técnicos :/  (" . $conn->connect_error . ")");
+            }
+
+            $sql = "SELECT titulo, descricao, introducao, conteudo, data_publicacao, imagem_url FROM noticias WHERE id = ?";
+            $stmt = $conn->prepare($sql);
+            $stmt->bind_param("i", $id);
+            $stmt->execute();
+            $result = $stmt->get_result();
+
+            if ($result->num_rows > 0) {
+                $row = $result->fetch_assoc();
+                $titulo = $row['titulo'];
+                $introducao = $row['introducao'];
+                $descricao = $row['descricao'];
+                $conteudo = $row['conteudo'];
+                $data = $row['data_publicacao'];
+                $imagem_url = $row['imagem_url'];
+            } else {
+                echo "<p>Notícia não encontrada.</p>";
+                exit;
+            }
+
+            $stmt->close();
+            $conn->close();
+        } else {
+            echo "ID de notícia inválido.";
+            exit;
+        }
     ?>
     <div id="separador"></div>
     <?php
         include('includes/modal.php');    
         include('includes/subnav.php');
         include('includes/sidenav.php');
-   ?>
-   <div class="noticiaBody">
+        include('includes/modalRemove-News.php');
+    ?>
+    <div class="noticiaBody">
         <div class="noticiaImg">
-            <img src="images/headerBg.jpg" alt="">
+            <img src="<?php echo $imagem_url; ?>" alt="<?php echo $titulo; ?>">
             <div class="noticaImgContainer">
-                <h1>Noticia 1</h1>
-                <p>Novo website da Associação de Pais de Benavente</p>
+                <h1><?php echo $titulo; ?></h1>
+                <p><?php echo $descricao; ?></p>
             </div>
         </div>
         <div class="container">
@@ -32,16 +68,27 @@
             </div>
             <div class="row">
                 <div class="col-sm">
+                    <h4 id="introH4">Introdução</h4>
                     <p class="textNoticia">
-                        A Associação de Pais de Benavente anuncia hoje o seu website oficial. <br>
-                        Desenvolvido por Rodrigo Germino, aluno da Escola Secundária de Benavente do curso profissional Técnico de Informática - Sistemas. <br><br>
-                        O website foi utilizado como PAP (Prova de Aptidão Profissional), por Rodrigo. A mesma consiste na defesa de um projeto realizados com os 
-                        conteúdos dados ao longo do secundário perante vários júris.
+                        <?php echo nl2br($introducao); ?>
                     </p>
+                    <h4 id="descricaoH4">Descrição</h4>
+                    <p class="textNoticia">
+                        <?php echo nl2br($conteudo); ?>
+                    </p>
+                    <p id="dataPublicacao"><?php echo $data; ?></p>
+                    <?php if (isset($_SESSION['username'])) { ?>
+                        <span id="removerBtn">Remover</span>
+                    <?php } ?>
                 </div>
             </div>
         </div>
-   </div>
-   <?php include('includes/footer.php'); ?>
+    </div>
+    <?php include('includes/footer.php'); ?>
+    <script>
+        function deleteNews(id) {
+            window.location.href = 'removerNoticias.php?id=' + id;
+        }
+    </script>
 </body>
 </html>

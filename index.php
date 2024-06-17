@@ -40,28 +40,32 @@
     </section>
     <section id="sectionNoticias">
         <div class="divCards-News">
-            <i class="fa-solid fa-chevron-left" id="arLeft" onclick="plusDivs(-1)"></i>
+            <?php if ($news_count > 1): ?>
+                <i class="fa-solid fa-chevron-left" id="arLeft" onclick="plusDivs(-1)"></i>
+            <?php endif; ?>
             <div class="cardNoticias">
-                <a href="noticia.php">
-                    <div class="containerNews">
-                        <img src="images/headerBg.jpg" alt="Noticia 1">
-                        <div class="centered">
-                            <h1>Noticia 1</h1>
-                            <p>Novo website da Associação de Pais de Benavente</p>
-                        </div>
-                    </div>
-                </a>
-                <a href="noticia.php">
-                    <div class="containerNews">
-                        <img src="images/esb.jpg" alt="Noticia 2">
-                        <div class="centered">
-                            <h1>Noticia 2</h1>
-                            <p>Alguma outra notícia importante</p>
-                        </div>
-                    </div>
-                </a>
+                <?php
+                    if ($news_count > 0) {
+                        while($row = $result->fetch_assoc()) {
+                            echo '<a href="noticia.php?id=' . $row["id"] . '" onclick="resetSlideIndex()">';
+                            echo '<div class="containerNews">';
+                            echo '<img src="' . $row["imagem_url"] . '" alt="' . $row["titulo"] . '">';
+                            echo '<div class="centered">';
+                            echo '<h1>' . $row["titulo"] . '</h1>';
+                            echo '<p>' . $row["descricao"] . '</p>';
+                            echo '</div>';
+                            echo '</div>';
+                            echo '</a>';
+                        }
+                    } else {
+                        echo "<h3 id=\"semNoticias\">Nenhuma notícia encontrada.</h3>";
+                    }
+                    $conn->close();
+                ?>
             </div>
-            <i class="fa-solid fa-chevron-right" id="arRight" onclick="plusDivs(+1)"></i>
+            <?php if ($news_count > 1): ?>
+                <i class="fa-solid fa-chevron-right" id="arRight" onclick="plusDivs(+1)"></i>
+            <?php endif; ?>
         </div>
     </section>
     <section id="ondeEstamos">
