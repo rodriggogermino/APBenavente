@@ -112,3 +112,19 @@ window.onclick = function(event) {
     modalRemove.style.display = "none";
   }
 }
+
+var removeFiles = document.getElementById("modalFiles");
+var removeB = document.getElementById("removeFile");
+var spanFiles = document.getElementsByClassName("cancelRemove")[0];
+
+removeB.onclick = function() {
+  removeFiles.style.display = "block";
+}
+spanFiles.onclick = function() {
+  removeFiles.style.display = "none";
+}
+window.onclick = function(event) {
+  if (event.target == removeFiles) {
+    removeFiles.style.display = "none";
+  }
+}

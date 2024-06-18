@@ -22,12 +22,12 @@
     <?php
     if (isset($_SESSION['username'])) { ?>
         <div class="loginDiv">
-            <form action="submitNoticia.php" class="formLogin" method="POST" enctype="multipart/form-data">
+        <form action="submitFicheiro.php" class="formLogin" method="POST" enctype="multipart/form-data">
                 <h3>Adicionar Ficheiros</h3>
-                <label for="titulo">Nome</label><br>
-                <input type="text" id="titulo" name="titulo" required><br>
-                <label for="imgNoticia">Ficheiro</label><br>
-                <input type="file" id="imgNoticia" name="imagemN" required><br><br>
+                <label for="nome">Nome</label><br>
+                <input type="text" id="nome" name="nome" required><br>
+                <label for="ficheiro">Ficheiro</label><br>
+                <input type="file" id="ficheiro" name="ficheiro" required><br><br>
                 <input type="submit" value="Publicar" id="submitBtn">
             </form>
         </div>

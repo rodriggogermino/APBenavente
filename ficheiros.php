@@ -24,26 +24,37 @@
     <div class="contactosDiv">
         <div class="container text-center">
             <div class="row">
-                <div class="col-sm">
-                    <div class="cardContactos">
-                        <i class="fa-brands fa-facebook-f"></i>
-                        <hr>
-                        <div class="containerContactos">
-                            <p>facebook.com/AssociacaoPais...</p>
-                        </div>
-                        <a href="https://pt-pt.facebook.com/AssociacaoPaisdoagrupamentodeescolasBenavente/" target="_blank">Visitar a nossa página</a>
-                    </div>
-                </div>
-                <div class="col-sm">
-                    <div class="cardContactos">
-                        <i class="fa-solid fa-envelope"></i>
-                        <hr>
-                        <div class="containerContactos">
-                            <p>aeb.pais@aebenavente.pt</p>
-                        </div>
-                        <a href="mailto: aeb.pais@aebenavente.pt" target="_blank">Contacte-nos</a>
-                    </div> 
-                </div> 
+                <?php
+                    $sql = "SELECT id, nome, data_publicacao, url_ficheiro FROM ficheiros";
+                    $result = $conn->query($sql);
+
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) {
+                            $file_extension = pathinfo($row['url_ficheiro'], PATHINFO_EXTENSION);
+                            echo '<div class="col-sm">';
+                            echo '<div class="cardContactos">';
+                            echo '<i class="fa-solid fa-file"></i>';
+                            echo '<hr>';
+                            echo '<div class="containerContactos">';
+                            echo '<p>' . $row['nome'] . '</p>';
+                            echo '</div>';
+                            if (isset($_SESSION['username'])) {
+                                echo '<div style="display: flex; align-items: center; justify-content: center;">';
+                                echo '<a href="' . $row['url_ficheiro'] . '" target="_blank">Descarregar</a>';
+                                echo '<i style="color: red; cursor: pointer; margin-left: 0.5em" class="fa-solid fa-xmark" onclick="deleteFile(' . $row['id'] . ')"></i>';
+                                echo '</div>';
+                            } else {
+                                echo '<a href="' . $row['url_ficheiro'] . '" target="_blank">Descarregar</a>';
+                            }
+                            echo '</div>';
+                            echo '</div>';
+                        }
+                    } else {
+                        echo '<p style="color: #107bbf;">Nenhum ficheiro encontrado.</p>';
+                    }
+
+                    $conn->close();
+                ?>
             </div>
         </div>
     </div>
@@ -51,5 +62,12 @@
     <?php
         include('includes/footer.php');
     ?>
+    <script>
+        function deleteFile(id) {
+            if (confirm('Tem a certeza que deseja remover este ficheiro?')) {
+                window.location.href = 'removerFicheiro.php?id=' + id;
+            }
+        }
+    </script>
 </body>
 </html>

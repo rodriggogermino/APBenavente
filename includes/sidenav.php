@@ -14,7 +14,7 @@
             <a href="">Inscrição na Associação</a>
         </li>
         <li>
-            <a href="ficheiro.php">Ficheiros</a>
+            <a href="ficheiros.php">Ficheiros</a>
         </li>
         <li>
             <a href="contactos.php">Contactos</a>
