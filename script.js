@@ -15,11 +15,11 @@ document.addEventListener('scroll', function () {
 });
 
 function openNav() {
-    document.getElementById("sidenavMenu").style.width = "250px";
+    document.getElementById("sidenavMenu").style.left = "0";
 }
   
 function closeNav() {
-    document.getElementById("sidenavMenu").style.width = "0";
+    document.getElementById("sidenavMenu").style.left = "-400px";
 }
 
 function myMap() {

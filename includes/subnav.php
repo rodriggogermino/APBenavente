@@ -1,7 +1,7 @@
 <div class="subnav" id="subnav">
     <?php
         if (isset($_SESSION['username'])) { ?>
-            <a href="">Inscrever-me</a>
+            <a href="inscricao.php">Inscrever-me</a>
             <a href="ficheiros.php">Ficheiros</a>
             <a href="contactos.php">Contactos</a>
             <div class="dropdown">
@@ -19,7 +19,7 @@
                 </div>
             </div>
         <?php } else { ?>
-            <a href="">Inscrever-me</a>
+            <a href="inscricao.php">Inscrever-me</a>
             <a href="ficheiros.php">Ficheiros</a>
             <a href="contactos.php">Contactos</a>
             <div class="dropdown">

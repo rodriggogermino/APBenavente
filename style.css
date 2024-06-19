@@ -274,11 +274,11 @@ border-radius: 1em;
 .sidenav {
   position: fixed;
   overflow-x: hidden;
+  overflow-y: scroll;
   height: 100%;
-  width: 0;
   z-index: 999;
-  top: 0; 
-  left: 0;
+  top: 0;
+  left: -400px;
   padding-top: 60px;
   background-color: white;
   border-top-right-radius: 1em;
@@ -308,7 +308,7 @@ border-radius: 1em;
   margin: 0.5em;
   border-radius: 0.5em;
   color: #107bbf;
-  display: block; 
+  display: block;
   transition: 0.3s;
 }
 
@@ -318,29 +318,29 @@ border-radius: 1em;
 }
 
 .bottomList {
-    position: absolute;
-    bottom: 0;
-    width: 100%;
-    list-style: none;
-    padding-left: 0;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  list-style: none;
+  padding-left: 0;
 }
 
 .bottomList a {
-    text-decoration: none;
-    color: white;
-    border: 2px solid #107bbf;
-    border-radius: 0.5em;
-    background-color: #107bbf;
-    padding: 0.3em 1em;
-    font-size: 15px;
-    margin: 0.5em;
-    display: block; 
-    transition: 0.3s;
+  text-decoration: none;
+  color: white;
+  border: 2px solid #107bbf;
+  border-radius: 0.5em;
+  background-color: #107bbf;
+  padding: 0.3em 1em;
+  font-size: 15px;
+  margin: 0.5em;
+  display: block;
+  transition: 0.3s;
 }
 
 .bottomList a:hover {
-    background-color: #109bbf;
-    border-color: #109bbf;
+  background-color: #109bbf;
+  border-color: #109bbf;
 }
 
 #semNoticias {
@@ -596,6 +596,7 @@ border-radius: 1em;
 
 .contactosDiv {
   height: 45vh;
+  box-sizing: border-box;
   display: flex;
   align-items: center;
 }
@@ -711,6 +712,37 @@ border-radius: 1em;
   background-color: #107bbf;
 }
 
+.inscricaoDiv {
+  height: fit-content;
+  display: flex;
+  align-items: center;
+}
+
+#h4Insc {
+  margin: 1em 0;
+  font-weight: 900;
+  color: #109bbf;
+  text-align: left;
+}
+
+.pInsc {
+  color: lightgray;
+  margin: 0;
+  text-align: left;
+}
+
+#noteInsc {
+  color: darkgray;
+  font-weight: bold;
+  margin-top: 1em;
+  
+}
+
+#folhaImg {
+  object-fit: contain;
+  width: 50px;
+  height: 80px;
+}
 
 footer {
   width: 100%;
@@ -791,9 +823,12 @@ footer img {
 
  /* General mobile styles (phones and small tablets in portrait and landscape) */
 @media only screen and (max-width: 900px) {
-  .headerLft {
-    display: flex;
-    align-items: center;
+ body {
+  font-family: "Trebuchet MS", Tahoma, sans-serif;  
+}
+.headerLft {
+  display: flex;
+  align-items: center;
 }
 .headerLft i,
 .headerRght,
@@ -835,12 +870,13 @@ footer img {
   }
   #col1_qs h3 {
       color: #107bbf;
-      font-size: 50px;
+      font-size: 40px;
       font-weight: 900;
   }
   #col1_qs p,
   #col2_qs p {
-      font-size: 10px;
+      font-size: 13px;
+      margin: 0;
       font-weight: 900;
   }
   #col2_qs p {
@@ -1012,11 +1048,5 @@ footer img {
   }
 }
 
-/* Medium devices (desktops, 992px and up) ----------- */
-@media only screen and (min-device-width : 992px) {
   
-}
 
-/* Large devices (large desktops, 1200px and up) ----------- */
-@media only screen and (min-device-width : 1200px) {
-}
