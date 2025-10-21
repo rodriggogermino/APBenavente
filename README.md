@@ -7,7 +7,7 @@ Repositório para a PAP do Ensino Secundário Profissional.
 </ul>
 
 ## 🎎 | APBenavente - Associação de Pais do Agrupamento de Escolas de Benavente
-<b>APBenavente</b> é um site dedicado a promover o turismo e a cultura da vila de Coruche, situada no coração do <b>Ribatejo, Portugal</b>. Conhecida como a <b>"Capital Mundial da Cortiça"</b>, Coruche oferece uma combinação única de <b>tradição</b>, <b>natureza</b> e <b>gastronomia</b>. Este projeto visa destacar os principais atrativos da região, facilitando o acesso a informações para visitantes e moradores.
+<b>Associação de Pais de Benavente</b> é uma plataforma dedicada a promover a <b>colaboração</b> entre pais, alunos e escolas do concelho de <b>Benavente, Portugal</b>. O projeto tem como objetivo fortalecer a <b>comunidade educativa</b>, incentivar a <b>participação ativa</b> dos encarregados de educação e apoiar iniciativas que contribuam para uma <b>educação de qualidade</b>.
 
 ## 🌟 | Secções
 <ul>
